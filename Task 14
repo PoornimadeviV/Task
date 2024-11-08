@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int sumOfDigitsUntilSingleDigit(int number) {
+    while (number >= 10) {  
+        int sum = 0;
+        while (number > 0) {
+            sum += number % 10;  
+            number /= 10;        
+        }
+        number = sum;  
+    }
+    return number;
+}
+
+int main() {
+    int number;
+    cout << "Enter a number: ";
+    cin >> number;
+    
+    int result = sumOfDigitsUntilSingleDigit(number);
+    cout << "Resulting single digit: " << result << endl;
+
+    return 0;
+}
