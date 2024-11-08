@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int sumOfSquares(int number) {
+    int sum = 0;
+    while (number > 0) {
+        int digit = number % 10;       
+        sum += digit * digit;           
+        number /= 10;                   
+    }
+    return sum;
+}
+
+int main() {
+    int number;
+    cout << "Enter a number: ";
+    cin >> number;
+    
+    int result = sumOfSquares(number);
+    cout << "Sum of squares of digits: " << result << endl;
+
+    return 0;
+}
