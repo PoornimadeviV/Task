@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+
+int largestPrimeFactor(int num) {
+    int largestFactor = -1;
+    while (num % 2 == 0) {
+        largestFactor = 2;
+        num /= 2;
+    }
+    for (int i = 3; i * i <= num; i += 2) {
+        while (num % i == 0) {
+            largestFactor = i;
+            num /= i;
+        }
+    }
+    if (num > 2) {
+        largestFactor = num;
+    }
+
+    return largestFactor;
+}
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+   int largestFactor = largestPrimeFactor(num);
+    cout << "Largest prime factor of " << num << " is: " << largestFactor << endl;
+
+    return 0;
+}
