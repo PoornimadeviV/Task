@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+double squareRoot(double n) {
+    double guess = n;
+    double epsilon = 1e-6; 
+    while ((guess * guess - n) > epsilon || (n - guess * guess) > epsilon) {
+        guess = (guess + n / guess) / 2.0;
+    }
+
+    return guess;
+}
+
+int main() {
+    double number;
+    cout << "Enter a number: ";
+    cin >> number;
+
+    if (number < 0) {
+        cout << "Square root of a negative number is not defined in real numbers." << endl;
+    } else {
+        double result = squareRoot(number);
+        cout << "The square root of " << number << " is approximately " << result << endl;
+    }
+
+    return 0;
+}
